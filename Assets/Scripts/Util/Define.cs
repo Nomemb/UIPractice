@@ -26,4 +26,31 @@ public class Define
         Speech,
         Max,
     }
+
+    public enum AnimState
+    {
+        None,
+        Idle,
+        Sweat,
+        Walking,
+        Working,
+        Attack,
+    }
+
+    public enum JobTitleType
+    {
+        Intern = 0,     // 사용안함.
+        Sinib,          // 주인공 시작
+        Daeri,
+        Gwajang,
+        Bujang,
+        Esa,
+        Sajang,
+        Cat,
+    }
+
+    public const int JOB_TITLE_TYPE_COUNT = (int)JobTitleType.Sajang + 1;
+    public const int MAX_COLLECTION_COUNT = 100;
+    public const int MAX_PROJECT_COUNT = 10;
+    public const int MAX_ENDING_COUNT = 10;
 }
