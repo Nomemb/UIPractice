@@ -53,4 +53,12 @@ public class Define
     public const int MAX_COLLECTION_COUNT = 100;
     public const int MAX_PROJECT_COUNT = 10;
     public const int MAX_ENDING_COUNT = 10;
+
+
+    public const int StartButtonText = 19997;
+    public const int ContinueButtonText = 19998;
+    public const int CollectionButtonText = 19999;
+    
+    public const int DataResetConfirm = 20022;
+
 }

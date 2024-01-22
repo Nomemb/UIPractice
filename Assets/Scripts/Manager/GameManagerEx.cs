@@ -378,6 +378,26 @@ public class GameManagerEx
 
     public string _path = Application.persistentDataPath + "/SaveData.json";
 
+    public void SaveGame()
+    {
+        string jsonStr = JsonUtility.ToJson(Managers.Game.SaveData);
+        File.WriteAllText(_path, jsonStr);
+        Debug.Log($"Save Game Completed : {_path}");
+    }
+    public bool LoadGame()
+    {
+        if (File.Exists(_path) == false)
+            return false;
 
+        string fileStr = File.ReadAllText(_path);
+        GameData data = JsonUtility.FromJson<GameData>(fileStr);
+        if (data != null)
+        {
+            Managers.Game.SaveData = data;
+        }
+        
+        Debug.Log($"Save Game Loaded : {_path}");
+        return true;
+    }
     #endregion
 }

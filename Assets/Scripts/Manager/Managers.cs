@@ -20,6 +20,13 @@ public class Managers : MonoBehaviour
     public static DataManager Data { get { Init(); return s_dataManager; } }
     public static GameManagerEx Game { get { Init(); return s_gameManager; } }
 
+    public static string GetText(int id)
+    {
+        if (Managers.Data.Texts.TryGetValue(id, out TextData value) == false)
+            return "";
+        
+        return value.kor.Replace("{userName}", Managers.Game.Name);
+    }
     private void Start()
     {
         Init();
@@ -35,7 +42,8 @@ public class Managers : MonoBehaviour
 
             s_instance = Utils.GetOrAddComponent<Managers>(go);
             DontDestroyOnLoad(go);
-            
+
+            s_dataManager.Init();
             s_resourceManager.Init();
             s_soundManager.Init();
             

@@ -39,8 +39,6 @@ public abstract class UI_Base : MonoBehaviour
             
             if (objects[i] == null)
                 Debug.Log($"Failed to bind({names[i]}");
-            
-            Debug.Log(objects[i].name);
         }
     }
 
@@ -57,6 +55,8 @@ public abstract class UI_Base : MonoBehaviour
         return objects[idx] as T;
     }
 
+    protected TextMeshProUGUI GetText(int idx) { return Get<TextMeshProUGUI>(idx); }
+        
     protected Button GetButton(int idx) { return Get<Button>(idx); }
 
     public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)

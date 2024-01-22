@@ -63,4 +63,43 @@ public class UIManager
 
         return popup;
     }
+
+    public void ClosePopupUI(UI_Popup popup)
+    {
+        // 팝업스택 없으면 종료
+        if (_popupStack.Count == 0)
+            return;
+
+        // 제일 마지막 스택에 저장된것과 다르면 종료
+        if (_popupStack.Peek() != popup)
+        {
+            Debug.Log("Close Popup Failed");
+            return;
+        }
+        
+        ClosePopupUI();
+    }
+
+    public void ClosePopupUI()
+    {
+        if (_popupStack.Count == 0)
+            return;
+
+        UI_Popup popup = _popupStack.Pop();
+        Managers.Resource.Destroy(popup.gameObject);
+        popup = null;
+
+        _order--;
+    }
+
+    public void CloseAllPopupUI()
+    {
+        while(_popupStack.Count > 0)
+            ClosePopupUI();
+    }
+    public void Clear()
+    {
+        CloseAllPopupUI();
+        SceneUI = null;
+    }
 }
