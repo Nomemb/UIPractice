@@ -58,7 +58,8 @@ public class Define
     public const int StartButtonText = 19997;
     public const int ContinueButtonText = 19998;
     public const int CollectionButtonText = 19999;
-    
+
+    public const int Sinibe = 20001;
     public const int DataResetConfirm = 20022;
 
 }
