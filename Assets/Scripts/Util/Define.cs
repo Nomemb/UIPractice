@@ -62,4 +62,9 @@ public class Define
     public const int Sinibe = 20001;
     public const int DataResetConfirm = 20022;
 
+    public const int Intro1 = 20019;
+    public const int Intro2 = 20020;
+    public const int Intro3 = 20021;
+    
+
 }
